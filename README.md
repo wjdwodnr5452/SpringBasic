@@ -17,5 +17,11 @@
    - 애플리케이션 이벤트
    - 편리한 리소스 조회
      
-   
-   
+#### 4-7 다양한 설정 형식 지원 - 자바 코드, XML
+##### 스프링 컨테이너는 다양한 형식읜 설정 정보를 받아들일 수 있게 유연하게 설계되어 있다.
+- 자바 코드, XML, Groovy 등등
+
+##### 애노테이션 기반 자바 코드 설정 사용
+- new AnnotationConfigApplicationContext(AppConfig.class)
+- AnnotationConfigApplicationContext
+
