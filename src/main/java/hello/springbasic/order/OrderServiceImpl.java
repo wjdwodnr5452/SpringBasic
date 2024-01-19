@@ -3,14 +3,29 @@ package hello.springbasic.order;
 import hello.springbasic.discount.DiscountPolicy;
 import hello.springbasic.member.Member;
 import hello.springbasic.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
+
+
+    /**
+     *
+     * 생성자 주입
+     * 생성자 호출시점에 딱 1번만 호출되는 것이 보장된다.
+     * 불변, 필수 의존관계에 사용
+     */
+    // @RequiredArgsConstructor : 롬복에서 자동으로 생성자를 만들어준다.
+/*    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }*/
+
 
     /**
      * 필드주입
@@ -50,16 +65,6 @@ public class OrderServiceImpl implements OrderService{
         this.discountPolicy = discountPolicy;
     }*/
 
-    /**
-     *
-     * 생성자 주입
-     * 생성자 호출시점에 딱 1번만 호출되는 것이 보장된다.
-     * 불변, 필수 의존관계에 사용
-     */
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
 
     @Override
