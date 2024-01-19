@@ -4,6 +4,8 @@ import hello.springbasic.discount.DiscountPolicy;
 import hello.springbasic.member.Member;
 import hello.springbasic.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,6 +23,7 @@ public class OrderServiceImpl implements OrderService{
      * 불변, 필수 의존관계에 사용
      */
     // @RequiredArgsConstructor : 롬복에서 자동으로 생성자를 만들어준다.
+    @Autowired
    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
