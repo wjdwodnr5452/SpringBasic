@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -21,10 +21,10 @@ public class OrderServiceImpl implements OrderService{
      * 불변, 필수 의존관계에 사용
      */
     // @RequiredArgsConstructor : 롬복에서 자동으로 생성자를 만들어준다.
-/*    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+   public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }*/
+    }
 
 
     /**
