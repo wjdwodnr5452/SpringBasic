@@ -1,5 +1,6 @@
 package hello.springbasic.order;
 
+import hello.springbasic.annotation.MainDiscountPolicy;
 import hello.springbasic.discount.DiscountPolicy;
 import hello.springbasic.member.Member;
 import hello.springbasic.member.MemberRepository;
@@ -24,7 +25,7 @@ public class OrderServiceImpl implements OrderService{
      */
     // @RequiredArgsConstructor : 롬복에서 자동으로 생성자를 만들어준다.
     @Autowired
-   public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+   public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
@@ -75,6 +76,8 @@ public class OrderServiceImpl implements OrderService{
         Member member = memberRepository.findById(memberId);
         int discountPrice = discountPolicy.discount(member, itemPrice);
         return new Order(memberId, itemName, itemPrice, discountPrice);
+
+
     }
 
     public MemberRepository getMemberRepository() {
